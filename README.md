@@ -8,7 +8,7 @@
 ### Stable diffusion code for unet implementaion from fast ai course: 
 https://github.com/fastai/diffusion-nbs/blob/master/Stable%20Diffusion%20Deep%20Dive.ipynb
 
-### Code for  Unet from above notebook:
+### Code to prepare tensor called latents and scheduler from above notebook:
 
 ```python
  # Prep Scheduler
