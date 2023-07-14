@@ -10,8 +10,7 @@ https://github.com/fastai/diffusion-nbs/blob/master/Stable%20Diffusion%20Deep%20
 
 ### Code for  Unet from above notebook:
 
- #Loop
-
+```python
 with autocast("cuda"):  # will fallback to CPU if no CUDA; no autocast for MPS
     for i, t in tqdm(enumerate(scheduler.timesteps), total=len(scheduler.timesteps)):
         # expand the latents if we are doing classifier-free guidance to avoid doing two forward passes.
@@ -39,3 +38,4 @@ with autocast("cuda"):  # will fallback to CPU if no CUDA; no autocast for MPS
 
     # scale and decode the image latents with vae
     latents = 1 / 0.18215 * latents
+```
