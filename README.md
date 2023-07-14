@@ -11,9 +11,9 @@ https://github.com/fastai/diffusion-nbs/blob/master/Stable%20Diffusion%20Deep%20
 ### Code for Scheduler and Unet from above notebook:
 
 # Prep Scheduler
-def set_timesteps(scheduler, num_inference_steps):
+<!-- def set_timesteps(scheduler, num_inference_steps):
     scheduler.set_timesteps(num_inference_steps)
-    scheduler.timesteps = scheduler.timesteps.to(torch.float16) # minor fix to ensure MPS compatibility, fixed in diffusers PR 3925
+    scheduler.timesteps = scheduler.timesteps.to(torch.float16) # minor fix to ensure MPS compatibility, fixed in diffusers PR 3925 -->
 
 set_timesteps(scheduler,num_inference_steps)
 
@@ -26,8 +26,8 @@ latents = latents.to(torch_device)
 latents = latents * scheduler.init_noise_sigma # Scaling (previous versions did latents = latents * self.scheduler.sigmas[0]
 
 # Loop
-with autocast("cuda"):  # will fallback to CPU if no CUDA; no autocast for MPS
-    for i, t in tqdm(enumerate(scheduler.timesteps), total=len(scheduler.timesteps)):
+# with autocast("cuda"):  # will fallback to CPU if no CUDA; no autocast for MPS
+    # for i, t in tqdm(enumerate(scheduler.timesteps), total=len(scheduler.timesteps)):
         # expand the latents if we are doing classifier-free guidance to avoid doing two forward passes.
         latent_model_input = torch.cat([latents] * 2)
         sigma = scheduler.sigmas[i]
